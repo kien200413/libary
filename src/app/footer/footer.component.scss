@@ -1,0 +1,91 @@
+/* General Footer Styling */
+.footer {
+    background-color: #343a40;
+    color: #f1f1f1;
+    padding: 40px 0;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-col {
+    flex: 1;
+    margin: 20px;
+}
+
+.footer-col h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #ff6347;
+}
+
+.footer-col p {
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.footer-col ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #f1f1f1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #ff6347;
+}
+
+/* Contact Info Icons */
+.contact-info li {
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 10px;
+}
+
+/* Social Media Links */
+.social-links a {
+    display: inline-block;
+    color: #f1f1f1;
+    font-size: 1.2em;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #ff6347;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    background-color: #2b2f34;
+    color: #b5b5b5;
+    font-size: 0.9em;
+}
+
+.footer-bottom p {
+    margin: 0;
+}

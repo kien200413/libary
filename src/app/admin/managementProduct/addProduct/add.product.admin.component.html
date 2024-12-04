@@ -1,0 +1,45 @@
+<div *ngIf="showForm">
+  <h2>Add New Product</h2>
+  <form (ngSubmit)="onAddProduct()" #productForm="ngForm">
+    <!-- Tên sản phẩm -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="product.name" name="name" required />
+
+    <!-- Giá sản phẩm -->
+    <label for="price">Price:</label>
+    <input type="number" id="price" [(ngModel)]="product.price" name="price" required />
+
+    <!-- URL của hình ảnh đại diện -->
+    <label for="thumbnail">Thumbnail URL:</label>
+    <input type="text" id="thumbnail" [(ngModel)]="product.thumbnail" name="thumbnail" />
+
+    <!-- Mô tả sản phẩm -->
+    <label for="description">Description:</label>
+    <textarea id="description" [(ngModel)]="product.description" name="description"></textarea>
+
+    <!-- Danh mục sản phẩm -->
+    <label for="category_id">Category:</label>
+    <select id="category_id" [(ngModel)]="product.category_id" name="category_id" required>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+
+    <!-- Từ khóa tìm kiếm -->
+    <label for="keyword">Keyword:</label>
+    <input type="text" id="keyword" [(ngModel)]="product.keyword" name="keyword" />
+
+    <!-- Tên tác giả sản phẩm -->
+    <label for="author">Author:</label>
+    <input type="text" id="author" [(ngModel)]="product.author" name="author" />
+
+    <!-- URL sản phẩm -->
+    <label for="url">Product URL:</label>
+    <input type="text" id="url" [(ngModel)]="product.url" name="url" />
+
+    <!-- Upload ảnh sản phẩm -->
+    <label for="productImage">Upload Image:</label>
+    <input type="file" (change)="onFilesSelected($event)" multiple />
+
+    <!-- Nút submit để thêm sản phẩm -->
+    <button type="submit">Add Product</button>
+  </form>
+</div>

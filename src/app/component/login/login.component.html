@@ -1,0 +1,263 @@
+<style>
+    .container {
+        color: white;
+        
+    }
+
+    h1 {
+        color: #eff4f0;
+        /* Màu chữ tối */
+    }
+
+    .product-header {
+        color: rgb(232, 141, 214);
+    }
+
+    .form-label {
+        color: #d5e79a;
+    }
+
+    .form-control {
+        background-color: rgb(19, 23, 42);
+        border: 1px solid rgb(29, 33, 54);
+    }
+
+    .form-control:focus {
+        border-color: white;
+        background-color: rgb(19, 23, 42);
+    }
+
+    .bg-custom {
+  background-color: #2a2e35; /* Dark background */
+}
+
+/* Navbar Brand Style */
+.navbar-brand {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Navbar Link Styles */
+.navbar-nav .nav-link {
+  color: #ffffff;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover Effect for Navbar Links */
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #e1e1e1;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  background-color: #3b3f46;
+  border: none;
+}
+
+.dropdown-item {
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #e1e1e1;
+}
+
+/* Active and Disabled Link Styles */
+.nav-item.active .nav-link,
+.nav-item.disabled .nav-link {
+  color: #9da3ab;
+}
+
+/* Login/Logout Button Styles */
+.navbar-nav.ms-auto .nav-link {
+  color: #ffffff;
+}
+
+.navbar-nav.ms-auto .nav-link:hover {
+  color: #f0a500;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar-nav.ms-auto {
+    margin-top: 10px;
+  }
+}
+
+    .login-form {
+        background-color: rgb(12, 12, 25);
+        border-radius: 10px;
+        padding: 20Px;
+        max-width: 500Px;
+        border: 1px solid rgb(32, 34, 60);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-form {
+        background-color: rgb(12, 12, 55);
+        border-radius: 10px;
+        padding: 20Px;
+        max-width: 500Px;
+        border: 1px solid rgb(32, 3, 60);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-header {
+        text-align: center;
+        color: rgb(105, 244, 181);
+        margin-bottom: 20Px;
+    }
+
+    .form-control {
+        background-color: transparent;
+       border: none;
+       color: white;
+        
+    }
+    .divider-nospace{
+       border-top: 1px solid white;
+    }
+    .form-control:focus{
+        color: #89d899;
+        background-color: transparent;
+        outline: none;
+        border-color: transparent;
+    }
+    .password-field{
+        position: relative;
+    }
+    .password-toggle{
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: aqua;
+        cursor: pointer;
+    }
+    .checkbox-text input[type="checkbox"]:checker{
+        border-color: white;
+        background-color: rgb(233,66,178);
+
+    }
+    .form-check-input{
+        margin-right: 5px;
+    }
+    .checkbox-text{
+        color: bisque;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10Px;
+    }
+    .register-linl{
+        color: #d5e79a;
+        text-decoration: none;
+    }
+    .access-right{
+        margin-top: 20px;
+        width: 200Px;
+        color: #eff4f0;
+        border: 1Px solid rgb(233,66,178);
+    }
+    .access-right :focus{
+border: 1px solid rgb(233,66,178);
+    }
+    .form-control::placeholder{
+        color: rgb(224, 86, 16);
+        opacity: 1;
+        
+    }
+  .login-button{
+    background: linear-gradient(to right,rgb(225,64,180),rgb(126,43,237));
+    color: #eff4f0;
+    border-radius: 30px;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 20Px;
+    border: none;
+  }
+  .divider{
+    height: 1Px;
+    background-color: rgb(233, 208, 162);
+    margin: 20Px;
+  }
+</style>
+<app-header></app-header>
+
+<div class="container" style="height: 100vh;">
+
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="login-form mx-auto">
+              <h2 class="login-header">Đăng nhập</h2>
+      
+              <div class="form-group">
+                <label for="email">Phone</label>
+                <input type="text" [(ngModel)]="phoneNumber" name="phoneNumber" class="form-control" id="email" [ngModelOptions]="{standalone: true}">
+                <div class="divider-nospace"></div>
+                <p class="text-danger" *ngIf="phoneNumber.length < 6 && loginForm.form.touched">Phone ít nhất 6 số</p>
+              </div>
+      
+              <div class="mt-5"></div>
+      
+              <div class="form-group password-field">
+                <label for="password">Mật khẩu</label>
+                <input type="password" placeholder="Ít nhất 3 ký tự" name="password" [(ngModel)]="password" class="form-control" id="password">
+                <i class="password-toggle bi bi-eye-slash"></i>
+                <div class="divider-nospace"></div>
+                <p class="text-danger" *ngIf="password.length < 3 && loginForm.form.touched">Mật khẩu ít nhất 3 kí tự</p>
+              </div>
+      
+              <div class="form-group">
+                <div class="form-check checkbox-text">
+                  <span style="display: flex;">
+                    <label>
+                      <input type="checkbox" [(ngModel)]="rememberMe" name="rememberMe"> Remember Me
+                    </label>
+                  </span>
+                  <a href="#" class="register-link">Quên mật khẩu</a>
+                </div>
+              </div>
+      
+              <div class="form-group">
+                <label for="roleSelect">Quyền đăng nhập</label>
+                <select id="roleSelect" [(ngModel)]="selectedRole" name="role" class="form-control access-right">
+                  <option value="" selected disabled>Chọn quyền đăng nhập</option>
+                  <option *ngFor="let role of roles" [ngValue]="role">{{ role.name }}</option>
+                </select>
+              </div>
+      
+              <!-- Sửa thành type="submit" để sử dụng (ngSubmit) -->
+              <button type="submit" class="login-button">Đăng nhập</button>
+              <div class="divider"></div>
+              <p class="text-center">Bạn chưa đăng ký.
+                <span><a href="#" class="register-link"routerLink="/register">Tạo tài khoản</a></span>
+              </p>
+      
+            </div>
+          </div>
+        </div>
+      </form>
+      
+</div>
+
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row product-description">
+                <div class="col-md-6">
+                    <p style="color: #eff4f0;">Kieen</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,102 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+    <div class="container">
+      <!-- Logo/Brand -->
+      <a class="navbar-brand">Thư viện sách</a>
+
+      <!-- Toggler button for responsive menu -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar content -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" 
+            [ngClass]="{ 'active': activeNavItem === 0 }"
+            (click)="setActiveNavItem(0)"
+            routerLink="/">Trang chủ</a>
+        </li>
+      
+       
+        <li class="nav-item">
+          <a
+           
+          >
+           Trạng thái đơn hàng
+          </a>
+        </li>
+        </ul>
+
+        <!-- User-related actions -->
+        <ul class="navbar-nav ms-auto">
+          <!-- Shopping cart -->
+          <li class="nav-item position-relative">
+            <a class="nav-link" [ngClass]="{ 'active': activeNavItem === 1 }" (click)="setActiveNavItem(1)" routerLink="/order">
+              <i class="fa fa-shopping-cart"></i>
+              <span *ngIf="cartItemCount > 0" class="badge position-absolute top-0 start-100 translate-middle bg-danger">
+                {{ cartItemCount }}
+              </span>
+            </a>
+          </li>
+          
+
+          <!-- User dropdown menu -->
+          <li class="nav-item dropdown" *ngIf="userResponse; else loginLink">
+            <a
+              class="nav-link dropdown-toggle"
+              id="userDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa fa-user"></i> {{ userResponse.fullname }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li>
+                <a class="dropdown-item" href="#" (click)="openUserDetail()">Tài khoản của tôi</a>
+              </li>
+              <li>
+                <a
+  class="dropdown-item"
+  (click)="navigateToDetail(1)" 
+>
+  Đơn mua
+</a>
+
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  (click)="handleItemClick(2)"
+                >
+                  Đăng xuất
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Login link -->
+          <ng-template #loginLink>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login">Đăng nhập</a>
+            </li>
+          </ng-template>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Modal for user detail -->
+  <app-user-detail></app-user-detail>
+</header>

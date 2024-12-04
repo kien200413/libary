@@ -1,0 +1,59 @@
+.container {
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-control,
+  .form-select {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .table-responsive {
+    margin-top: 20px;
+  }
+  
+  .table {
+    font-size: 14px;
+  }
+  
+  .table thead {
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  .thumbnail-img,
+  .product-img {
+    width: 50px;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .pagination-nav {
+    margin-top: 20px;
+  }
+  
+  .pagination .page-item .page-link {
+    color: #007bff;
+  }
+  
+  .pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+  }
+  
+  .pagination .page-item.disabled .page-link {
+    color: #ddd;
+  }
+  
+  .pagination .page-item:hover .page-link {
+    background-color: #f0f0f0;
+    color: #007bff;
+  }
+  

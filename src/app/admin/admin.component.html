@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <header class="header bg-success text-white d-flex justify-content-between p-3">
+    <h1 class="header-title m-0">Dashboard Header</h1>
+    <button class="btn btn-danger btn-sm" (click)="logout()">Logout</button>
+  </header>
+
+  <div class="row">
+      <nav id="sidebar" class="col-md-2 col-lg-2 d-md-block bg-light sidebar">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item mb-3">
+              <a class="nav-link" 
+                 [ngClass]="{'active': selectedNav === 'order'}" 
+                 (click)="showAdminComponent('order')">
+                <i class="bi bi-box-seam icon"></i> Orders
+              </a>
+            </li>
+            <li class="nav-item mb-3">
+              <a class="nav-link" 
+                 [ngClass]="{'active': selectedNav === 'categories'}" 
+                 (click)="showAdminComponent('categories')">
+                <i class="bi bi-folder icon"></i> Categories
+              </a>
+            </li>
+            <li class="nav-item mb-3">
+              <a class="nav-link" 
+                 [ngClass]="{'active': selectedNav === 'products'}" 
+                 (click)="showAdminComponent('products')">
+                <i class="bi bi-bag icon"></i> Products
+              </a>
+            </li>
+            <li class="nav-item mb-3">
+              <a class="nav-link" 
+                 [ngClass]="{'active': selectedNav === 'users'}" 
+                 (click)="showAdminComponent('users')">
+                <i class="bi bi-bag icon"></i> User
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+      
+      <div class="col-md-10 col-lg-10 overflow-auto p-4">
+        <ng-container [ngSwitch]="adminComponent">
+          <app-order-admin *ngSwitchCase="'order'"></app-order-admin>
+          <app-product-admin *ngSwitchCase="'products'"></app-product-admin>
+          <app-category-admin  *ngSwitchCase="'categories'"></app-category-admin>
+          <app-user-list-admin  *ngSwitchCase="'users'"></app-user-list-admin>
+          <!-- Add other admin components here if needed -->
+        </ng-container>
+      </div>
+  </div>
+</div>

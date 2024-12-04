@@ -1,0 +1,104 @@
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<div class="container">
+    <form #registerForm="ngForm" (ngSubmit)="register()">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="login-form mx-auto">
+                <h2 class="login-header">Đăng nhập</h2>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input 
+                      type="number" 
+                      class="form-control" 
+                      name="phone" 
+                      (ngModelChange)="onPhoneChange()" 
+                      [(ngModel)]="phone" 
+                      required 
+                      id="phone" 
+                    />
+                    <div class="divider-nospace"></div>
+                    <!-- Hiển thị thông báo nếu số điện thoại tồn tại -->
+                    <p class="text-danger" *ngIf="phoneExists">Số điện thoại đã tồn tại, vui lòng chọn số khác.</p>
+                    <!-- Hiển thị thông báo nếu số điện thoại không đủ số lượng ký tự -->
+                    <p class="text-danger" *ngIf="phone.length < 8 && !phoneExists">Phone ít nhất 8 số</p>
+                  </div>
+                  
+                  
+               
+                  <div class="form-group password-field">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" placeholder="Ít nhất 3 ký tự" [(ngModel)]="password"  name="password" required class="form-control" id="password">
+                    <i class="password-toggle bi bi-eye-slash"></i>
+                    <div class="divider-nospace"></div>
+                    <p class="text-danger" *ngIf="password.length <3  && registerForm.form.touched">Mật khẩu ít nhất 3 kí tự</p>
+                  </div>
+                
+                
+                  <div class="form-group password-field">
+                    <label for="retype-password">Nhập lại mật khẩu</label>
+                    <input type="password" placeholder="Nhập lại mật khẩu" [(ngModel)]="retypePassword" name="retypePassword" required class="form-control" id="retype-password" (ngModelChange)="checkPasswordsMatch()">
+                    
+                    <!-- Hiển thị lỗi nếu mật khẩu không khớp -->
+                    <p class="text-danger" *ngIf="passwordMismatch">Mật khẩu không khớp</p>
+                    <p class="text-danger" *ngIf="retypePassword.length < 3 && registerForm.submitted">Mật khẩu ít nhất 3 kí tự</p>
+                    <div class="divider-nospace"></div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="name">Họ tên:</label>
+                    <input type="text" [(ngModel)]="fullname" name="fullname" required class="form-control" id="name" placeholder="Nhập họ tên">
+                    <div class="divider-nospace"></div>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="date-of-birth">Ngày tháng năm sinh</label>
+                    <input 
+                        type="date" 
+                        [(ngModel)]="dateOfBirth" 
+                        (input)="registerForm?.form?.markAsTouched(); checkAge()" 
+                        name="dateOfBirth" 
+                        required 
+                        class="form-control" 
+                        id="date-of-birth"
+                    >
+                    <div class="divider-nospace"></div>
+                  
+                    <p class="text-danger" 
+                       *ngIf="registerForm?.form?.controls?.['dateOfBirth']?.errors?.['invalidAge'] && registerForm?.form?.touched">
+                      Bạn chưa đủ 18 tuổi
+                    </p>
+                </div>
+                  
+
+                  <div class="form-group">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" [(ngModel)]="address" name="address" class="form-control" id="address" placeholder="Nhập địa chỉ">
+                    <div class="divider-nospace"></div>
+                  </div>
+                
+                <div class="form-group">
+                    <div class="form-check checkbox-text">
+                        <span style="display: flex;">
+                        <input type="checkbox" [(ngModel)]="isAccepted"  name="isAccepted" class="form-check-input" id="agree">
+                        <label for="agree" class="form-check-lable text-start">Tôi đồng ý với các điều khoản</label>
+                        </span>
+                      
+                    </div>
+                </div>
+                <re-captcha 
+                siteKey="6LdHQ4wqAAAAABDaQ2qP_zv_rDmKxz3Z6KbrqoWA" 
+                (resolved)="onCaptchaResolved($event)">
+              </re-captcha>
+              
+                <button type="button" (click)="register()" class="login-button">Đăng Ký</button>
+                <div class="divider"></div>
+                <p class="text-center">Bạn đã có tài khoản
+                    <span><a href="#" class="register-link" routerLink="/login">Đăng nhập</a></span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</form>
+</div>

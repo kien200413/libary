@@ -1,0 +1,25 @@
+select
+ od.id ,
+  od.number_of_products,
+    od.price ,
+    od.total_money ,
+    o.id,
+    o.user_id,
+    o.fullname,
+    o.email,
+    o.phone_number,
+    o.address,
+    o.note,
+    o.order_date,
+    o.status,
+    o.total_money ,
+    o.shipping_method,
+    o.shipping_address,
+    o.payment_method,
+    p.id ,
+    p.name ,
+    p.price ,
+    p.thumbnail
+   
+ from order_detail od join order o ON od.order_id = o.id 
+                            JOIN  product p ON od.product_id = p.id

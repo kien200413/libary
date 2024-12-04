@@ -1,0 +1,242 @@
+
+    h1 {
+        color: #eff4f0;
+        /* Màu chữ tối */
+    }
+
+    .product-header {
+        color: rgb(232, 141, 214);
+    }
+    form {
+    color: #d5e79a;
+}
+
+/* Màu chữ trắng cho tất cả các nhãn */
+
+
+    .form-label {
+        color: #d5e79a;
+    }
+
+    .form-control {
+        background-color: rgb(19, 23, 42);
+        border: 1px solid rgb(29, 33, 54);
+        color: #eff4f0;
+    }
+
+    .form-control:focus {
+        border-color: white;
+        background-color: rgb(19, 23, 42);
+    }
+    .bg-custom {
+  background-color: #2a2e35; /* Dark background */
+}
+
+/* Navbar Brand Style */
+.navbar-brand {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Navbar Link Styles */
+.navbar-nav .nav-link {
+  color: #ffffff;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover Effect for Navbar Links */
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #e1e1e1;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  background-color: #3b3f46;
+  border: none;
+}
+
+.dropdown-item {
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #e1e1e1;
+}
+
+/* Active and Disabled Link Styles */
+.nav-item.active .nav-link,
+.nav-item.disabled .nav-link {
+  color: #9da3ab;
+}
+
+/* Login/Logout Button Styles */
+.navbar-nav.ms-auto .nav-link {
+  color: #ffffff;
+}
+
+.navbar-nav.ms-auto .nav-link:hover {
+  color: #f0a500;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar-nav.ms-auto {
+    margin-top: 10px;
+  }
+}
+.invalid-feedback {
+  display: block; /* Đảm bảo rằng thông báo lỗi hiển thị */
+  color: red; /* Đặt màu chữ thành đỏ */
+  font-size: 0.875em; /* Tùy chọn: điều chỉnh kích thước chữ nhỏ hơn một chút */
+}
+
+
+/* Định dạng cho navbar brand */
+.navbar-brand {
+    color: #ffffff; /* Màu chữ trắng */
+    font-weight: bold; /* Làm đậm chữ */
+}
+
+/* Định dạng cho các liên kết trong navbar */
+.navbar-nav .nav-link {
+    color: #ffffff; /* Màu chữ trắng */
+    border-radius: 20px; /* Bo tròn các nút */
+    padding: 10px 20px; /* Thêm khoảng cách cho nút */
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu */
+}
+
+/* Hiệu ứng hover cho các liên kết */
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Màu nền khi di chuột */
+    color: #007bff; /* Màu chữ khi di chuột */
+}
+
+    .product-oder {
+        color: rgb(105, 244, 181);
+    }
+
+   
+
+    .table-responsive {
+  max-height: 400px; /* Đặt chiều cao tối đa theo nhu cầu của bạn */
+  overflow-y: auto; /* Thanh cuộn dọc */
+  overflow-x: hidden; /* Ẩn thanh cuộn ngang */
+}
+
+table {
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        border-collapse: separate;
+        border: 1px solid rgb(21, 20, 20);
+        border-spacing: 0;
+        background: linear-gradient(to right,rgb(49, 230, 173),rgb(156, 92, 241));;
+    }
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+}
+
+.product-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+    .product-name {
+        color: #eff4f0;
+        margin-right: 10px;
+    }
+    .btn-gradient{
+        background: linear-gradient(to right,rgb(28, 185, 30),rgb(126,43,237));
+        color: white;
+        border-radius: 30px;
+        width: 200px;
+    }
+    .form-control option {
+    color: black; /* Đặt màu đen hoặc bất kỳ màu nào bạn muốn */
+    background-color: #d5e79a; /* Có thể đặt nền trắng hoặc giữ nguyên */
+}
+.divider-nospace{
+       border-top: 1px solid white;
+    }
+    button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #d50000; /* Thay đổi màu khi hover */
+}
+
+button i {
+  font-size: 20px; /* Điều chỉnh kích thước biểu tượng */
+  color: rgb(12, 2, 2); /* Màu của biểu tượng "X" */
+}
+
+.remove-btn:hover i {
+    color: #ff6666; /* Màu thay đổi khi hover */
+  }
+
+  .quantity-control {
+    display: flex; /* Hiển thị theo chiều ngang */
+    align-items: center; /* Căn giữa dọc */
+    gap: 5px; /* Khoảng cách giữa các thành phần */
+  }
+  
+  .quantity-control .btn-outline-secondary {
+    background-color: transparent; /* Nền trong suốt */
+    color: #000; /* Màu đen cho nút */
+    border: none; /* Loại bỏ viền */
+    font-size: 18px; /* Kích thước chữ */
+    font-weight: bold; /* Làm đậm chữ */
+    cursor: pointer; /* Thay đổi con trỏ chuột */
+    padding: 5px; /* Khoảng cách trong nút */
+    width: 30px; /* Đặt chiều rộng nút */
+    height: 30px; /* Đặt chiều cao nút */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .quantity-control .btn-outline-secondary:hover {
+    color: #333; /* Màu đen xám hơn khi hover */
+    transform: scale(1.1); /* Tăng kích thước nhẹ khi hover */
+  }
+  
+  .quantity-control .btn-outline-secondary:active {
+    transform: scale(0.95); /* Hiệu ứng nhấn nút */
+  }
+  
+  .quantity-control .form-control {
+    background-color: transparent; /* Nền trong suốt */
+    border: none; /* Loại bỏ viền */
+    text-align: center; /* Căn giữa số lượng */
+    font-size: 18px; /* Kích thước chữ */
+    font-weight: bold; /* Làm đậm chữ */
+    color: #000; /* Màu đen */
+    width: 50px; /* Đặt chiều rộng ô nhập */
+  }
+  
+  .quantity-control .form-control:focus {
+    outline: none; /* Loại bỏ viền focus mặc định */
+  }
+  
+

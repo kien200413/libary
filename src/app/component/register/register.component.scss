@@ -1,0 +1,149 @@
+
+    .navbar {
+    background-color: rgba(0, 0, 0, 0.7); /* Màu nền navbar trong suốt với bóng đen */
+    border: none; /* Bỏ viền nếu có */
+}
+
+/* Định dạng cho navbar brand */
+.navbar-brand {
+    color: #ffffff; /* Màu chữ trắng */
+    font-weight: bold; /* Làm đậm chữ */
+}
+
+/* Định dạng cho các liên kết trong navbar */
+.navbar-nav .nav-link {
+    color: #ffffff; /* Màu chữ trắng */
+    border-radius: 20px; /* Bo tròn các nút */
+    padding: 10px 20px; /* Thêm khoảng cách cho nút */
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu */
+}
+
+/* Hiệu ứng hover cho các liên kết */
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Màu nền khi di chuột */
+    color: #007bff; /* Màu chữ khi di chuột */
+}
+.container {
+        color: white;
+        
+    }
+    .login-form {
+        background-color: rgb(12, 12, 25);
+        border-radius: 10px;
+        padding: 20Px;
+        max-width: 500Px;
+        border: 1px solid rgb(32, 34, 60);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-form {
+        background-color: rgb(12, 12, 55);
+        border-radius: 10px;
+        padding: 20Px;
+        max-width: 500Px;
+        border: 1px solid rgb(32, 3, 60);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-header {
+        text-align: center;
+        color: rgb(105, 244, 181);
+        margin-bottom: 20Px;
+    }
+
+    .form-control {
+        background-color: transparent;
+       border: none;
+       color: white;
+        
+    }
+    .divider-nospace{
+       border-top: 1px solid white;
+    }
+    .form-control:focus{
+        color: #89d899;
+        background-color: transparent;
+        outline: none;
+        border-color: transparent;
+    }
+    .password-field{
+        position: relative;
+    }
+    .password-toggle{
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: aqua;
+        cursor: pointer;
+    }
+    .checkbox-text input[type="checkbox"]:checker{
+        border-color: white;
+        background-color: rgb(233,66,178);
+
+    }
+    .form-check-input{
+        margin-right: 5px;
+    }
+    .checkbox-text{
+        color: bisque;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10Px;
+    }
+    .register-linl{
+        color: #d5e79a;
+        text-decoration: none;
+    }
+    .access-right{
+        margin-top: 20px;
+        width: 200Px;
+        color: #eff4f0;
+        border: 1Px solid rgb(233,66,178);
+    }
+    .access-right :focus{
+border: 1px solid rgb(233,66,178);
+    }
+    .form-control::placeholder{
+        color: rgb(224, 86, 16);
+        opacity: 1;
+        
+    }
+  .login-button{
+    background: linear-gradient(to right,rgb(225,64,180),rgb(126,43,237));
+    color: #eff4f0;
+    border-radius: 30px;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 20Px;
+    border: none;
+  }
+  .divider{
+    height: 1Px;
+    background-color: rgb(233, 208, 162);
+    margin: 20Px;
+  }
+  .highlighted-text {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2em; /* Tăng kích thước chữ */
+    animation: pulse 0.5s ease-in-out; /* Hiệu ứng phóng to thu nhỏ */
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Hiệu ứng phóng to thu nhỏ */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+

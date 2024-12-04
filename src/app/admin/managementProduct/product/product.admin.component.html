@@ -1,0 +1,128 @@
+<div class="container mt-4">
+  <h2 class="text-center">Product List</h2>
+
+  <!-- Search and Category Filter -->
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Search by keyword..." 
+        [(ngModel)]="keyword" 
+        (keyup.enter)="searchProducts()" />
+    </div>
+    <div class="col-md-4">
+      <select 
+        class="form-select" 
+        [(ngModel)]="selectedCategoryId" 
+        (change)="searchProducts()">
+        <option value="0">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+      </select>
+    </div>
+    <div class="col-md-4 text-end">
+      <button class="btn btn-primary" (click)="searchProducts()">Search</button>
+    </div>
+  </div>
+
+  <!-- Add Product Button -->
+  <div class="text-end mb-3">
+    <button class="btn btn-primary" (click)="openAddModal()">Add Product</button>
+  </div>
+
+  <!-- Add Product Modal -->
+  <div *ngIf="isAddModalOpen" class="modal show d-block" tabindex="-1" role="dialog" style="background: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add New Product</h5>
+          <button type="button" class="btn-close" (click)="closeAddModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-product-admin (productAdded)="onProductAdded()"></app-add-product-admin>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update Product Modal -->
+  <div *ngIf="isUpdateModalOpen" class="modal show d-block" tabindex="-1" role="dialog" style="background: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Product</h5>
+          <button type="button" class="btn-close" (click)="closeUpdateModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-update-product
+          [productId]="selectedProduct?.id ?? null"
+          [product]="selectedProduct || null"
+          [categories]="categories"
+          (closeModal)="closeUpdateModal()"
+          (productUpdated)="onProductUpdated()">
+        </app-update-product>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Thumbnail</th>
+          <th>Description</th>
+          <th>Category ID</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>
+            <img [src]="product.url" alt="Product Thumbnail" class="thumbnail-img" style="width: 50px; height: auto;">
+          </td>
+          <td>{{ product.description }}</td>
+          <td>{{ getCategoryName(product.category_id) }}</td>
+
+
+
+          <td>
+            <button class="btn btn-sm btn-info me-2" (click)="openUpdateModal(product)">Update</button>
+            <button class="btn btn-sm btn-danger" (click)="onDeleteProduct(product.id ?? 0)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <nav aria-label="Page navigation" class="pagination-nav mt-4">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1" (click)="onPageChange(1)">
+        <a class="page-link">First</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">
+        <a class="page-link">Previous</a>
+      </li>
+      <ng-container *ngFor="let page of visiblePages">
+        <li class="page-item" [class.active]="page === currentPage" (click)="onPageChange(page)">
+          <a class="page-link">{{ page }}</a>
+        </li>
+      </ng-container>
+      <li class="page-item" [class.disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">
+        <a class="page-link">Next</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages" (click)="onPageChange(totalPages)">
+        <a class="page-link">Last</a>
+      </li>
+    </ul>
+  </nav>
+</div>

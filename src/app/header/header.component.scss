@@ -1,0 +1,85 @@
+.footer {
+  background-color: #343a40;
+  color: #f1f1f1;
+  padding: 40px 0;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1;
+  margin: 20px;
+}
+
+.footer-col h4 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #ff6347;
+}
+
+.contact-info i {
+  margin-right: 10px;
+}
+
+.social-links a {
+  display: inline-block;
+  color: #f1f1f1;
+  font-size: 1.2em;
+  margin-right: 10px;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #ff6347;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  background-color: #2b2f34;
+  color: #b5b5b5;
+  font-size: 0.9em;
+}
+
+.footer-col iframe {
+  border-radius: 10px;
+}
+
+/* Căn chỉnh các mục trong navbar */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 15px; /* Khoảng cách giữa các mục trong navbar */
+}
+
+/* Đặt icon giỏ hàng bên trái tên người dùng */
+.navbar-nav .nav-item i {
+  margin-right: 5px; /* Khoảng cách giữa icon và tên */
+  font-size: 1.2rem;
+}
+
+/* Điều chỉnh cho icon giỏ hàng */
+.navbar-nav .nav-link .fa-shopping-cart {
+  margin-right: 5px; /* Khoảng cách giữa icon và chữ "Giỏ hàng" */
+  font-size: 1.5rem;
+}
+
+/* Căn chỉnh icon người dùng và giỏ hàng */
+.navbar-nav.ms-auto {
+  display: flex;
+  align-items: center; /* Căn giữa các phần tử trong navbar */
+}

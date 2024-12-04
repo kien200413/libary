@@ -1,0 +1,30 @@
+<div class="modal fade" id="userDetailModal" tabindex="-1" aria-labelledby="userDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="userDetailModalLabel">Thông Tin Tài Khoản</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="user; else errorTemplate">
+            <p><strong>Họ Tên:</strong> {{ user.fullName }}</p>
+           
+            <p><strong>Số Điện Thoại:</strong> {{ user.phoneNumber }}</p>
+            <p><strong>Địa chỉ:</strong> {{ user.address }}</p>
+            <p><strong>Ngày Sinh:</strong> {{ user.dateOfBirth }}</p>
+            <p><strong>Trạng thái:</strong> {{ user.active }}</p>
+          </div>
+          <ng-template #errorTemplate>
+            <div class="alert alert-danger">
+              Không thể tải thông tin người dùng.
+            </div>
+          </ng-template>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="handleItemClick(2)">Đăng xuất</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,25 @@
+<div class="update-category-form">
+    <h3>Cập nhật danh mục</h3>
+    <form [formGroup]="updateCategoryForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Tên danh mục</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          class="form-control"
+          placeholder="Nhập tên danh mục"
+        />
+        <div *ngIf="updateCategoryForm.get('name')?.invalid && updateCategoryForm.get('name')?.touched">
+          <small class="text-danger">Tên danh mục phải có ít nhất 3 ký tự.</small>
+        </div>
+      </div>
+  
+     
+  
+      <button type="submit" class="btn btn-primary mt-3" [disabled]="updateCategoryForm.invalid">
+        Cập nhật
+      </button>
+    </form>
+  </div>
+  

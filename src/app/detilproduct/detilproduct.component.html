@@ -1,0 +1,381 @@
+<style>
+   /* Định dạng cho navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+}
+
+/* Định dạng cho navbar brand */
+.navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Định dạng cho các liên kết trong navbar */
+.navbar-nav .nav-link {
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hiệu ứng hover cho các liên kết */
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #007bff;
+}
+
+/* Định dạng cho hình ảnh sản phẩm chính */
+.product-image {
+    height: 400px; /* Chiều cao cố định */
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Định dạng cho container thumbnail */
+.thumbnail-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Định dạng cho từng ảnh thumbnail */
+.thumbnail-item {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Hiệu ứng khi hover trên ảnh thumbnail */
+.thumbnail-item:hover {
+    transform: scale(1.05);
+}
+
+/* Viền đỏ khi ảnh được chọn */
+.thumbnail-item.active {
+    border: 2px solid red;
+}
+
+/* Định dạng cho chi tiết sản phẩm */
+.product-details {
+    color: rgb(88, 244, 161);
+    padding: 20px;
+}
+
+/* Định dạng cho nút thêm vào giỏ hàng và mua ngay */
+.product-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.product-actions button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+.product-actions button.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.product-actions button.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Định dạng cho form số lượng sản phẩm */
+.product-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.product-quantity button {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.product-quantity input {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    width: 50px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.btn-outline-secondary{
+    border: 1px solid rgb(245, 240, 240);
+    color: rgb(247, 243, 243);
+}
+.product-quantity input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+body {
+    background-color: #0d0d25; /* Màu nền tối để hiệu ứng neon nổi bật */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.neon-button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00f0ff;
+    background-color: transparent;
+    padding: 12px 24px;
+    border: 2px solid #00f0ff;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff; /* Tạo viền phát sáng */
+}
+
+.neon-button span {
+    margin-left: 8px;
+    transition: margin-left 0.3s;
+}
+
+.neon-button:hover span {
+    margin-left: 12px; /* Dịch chuyển mũi tên khi hover */
+}
+
+.neon-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: rgba(0, 240, 255, 0.2); /* Màu nền sáng dịu bên trong */
+    z-index: -1;
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+}
+
+.neon-button:hover:before {
+    opacity: 0.3;
+}
+
+.neon-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff, 0 0 40px #00f0ff, 0 0 50px #00f0ff; /* Tạo viền neon mềm mại xung quanh */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.neon-button:hover::after {
+    opacity: 1;
+}
+
+
+
+
+/* Định dạng cho nút neon hồng */
+.neon-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 30px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.7), 0 0 20px rgba(255, 20, 147, 0.6), 0 0 40px rgba(255, 0, 128, 0.6);
+}
+
+.neon-btn:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.9), 0 0 30px rgba(255, 20, 147, 0.8), 0 0 60px rgba(255, 0, 128, 0.8);
+    background: linear-gradient(90deg, rgba(255, 0, 128, 0.9), rgba(255, 20, 147, 0.7));
+}
+
+.neon-btn .icon {
+    font-size: 1.2rem; /* Kích thước của icon */
+    margin-right: 8px; /* Khoảng cách giữa icon và text */
+}
+
+/* Định dạng chung cho nút neon */
+.neon-btn1 {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 30px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.neon-btn1::before,
+.neon-btn1::after {
+    content: '';
+    position: absolute;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+.neon-btn1::before {
+    border: 2px solid rgba(0, 255, 0, 0.6); /* Màu xanh lá nhạt hơn */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6), 0 0 20px rgba(0, 255, 0, 0.6);
+}
+
+.neon-btn1::after {
+    border: 2px solid rgba(0, 255, 0, 0.2); /* Màu xanh lá nhạt */
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2), 0 0 10px rgba(0, 255, 0, 0.2);
+    opacity: 0;
+}
+
+.neon-btn1:hover::before {
+    opacity: 0;
+}
+
+.neon-btn1:hover::after {
+    opacity: 1;
+}
+
+/* Hiệu ứng màu xanh lá neon */
+.neon-green {
+    color: #00ff00;
+}
+
+.neon-btn1:hover {
+    box-shadow: 0 0 20px rgba(91, 217, 119, 0.9), 0 0 30px rgba(152, 223, 165, 0.8), 0 0 60px rgba(174, 235, 189, 0.8);
+    background: linear-gradient(90deg, rgba(111, 232, 137, 0.9), rgba(145, 217, 154, 0.7));
+}
+.neon-green:hover::before {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.6), 0 0 30px rgba(0, 255, 0, 0.6);
+}
+
+.neon-green:hover::after {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8), 0 0 40px rgba(0, 255, 0, 0.8);
+}
+
+
+
+
+
+</style>
+<app-header></app-header>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Hình ảnh sản phẩm chính -->
+        <div class="col-md-6">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div *ngFor="let image of product?.product_images; let i = index" 
+                         class="carousel-item" [ngClass]="{'active': i === currentImageIndex}">
+                        <img [src]="image.imageUrl" class="product-image d-block w-100" alt="Product Image">
+                    </div>
+                </div>
+
+                <!-- Nút điều hướng -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" (click)="previousImage()">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" (click)="nextImage()">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-- Thumbnails -->
+            <div class="thumbnail-container mt-3">
+                <div *ngFor="let image of product?.product_images; let i = index" class="thumbnail-item" (click)="thumbnailClick(i)">
+                    <img [src]="image.imageUrl" alt="Thumbnail Image" class="thumbnail-image">
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Chi tiết sản phẩm -->
+        <div class="col-md-6">
+            <div class="product-details">
+                <h2>{{ product?.name }}</h2>
+               
+                <p>Giá: {{ product?.price | currency }}</p>
+                <div class="product-actions">
+                    <button class="neon-btn1" (click)="addToCart()">Thêm vào giỏ hàng</button>
+
+                    <button class="neon-btn" (click)="buyNow()" routerLink="/order">
+                        <span class="icon">🛒</span> BUY NOW
+                    </button>
+                    
+                    
+                    <!-- <button class="neon-button">
+                        LEARN NOW <span>➔</span>
+                    </button> -->
+                    
+
+                </div>
+                <div class="product-quantity mt-3">
+                    <div class="border-wrapper d-flex align-items-center">
+                        <a class="btn btn-outline-secondary" (click)="decreaseQuantity()">-</a>
+                        <!-- Thay ngModel bằng (input) -->
+                        <input type="text" [value]="quantity" (input)="updateQuantity($event)" class="form-control mx-2" style="width: 50px;">
+                        <a class="btn btn-outline-secondary" (click)="increaseQuantity()">+</a>
+                    </div>
+                    
+                </div>
+                <p class="product-description">Mô tả: {{ product?.description }}</p>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<app-footer></app-footer>
+

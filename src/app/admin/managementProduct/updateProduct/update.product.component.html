@@ -1,0 +1,41 @@
+<form [formGroup]="updateProductForm" (ngSubmit)="onUpdateProduct()">
+  <div class="mb-3">
+    <label for="id" class="form-label">ID</label>
+    <input id="id" formControlName="id" type="number" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input id="name" formControlName="name" type="text" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="price" class="form-label">Price</label>
+    <input id="price" formControlName="price" type="number" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="author" class="form-label">Author</label>
+    <input id="author" formControlName="author" type="text" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="thumbnail" class="form-label">Thumbnail URL</label>
+    <input id="thumbnail" formControlName="thumbnail" type="text" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea id="description" formControlName="description" class="form-control"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="category_id" class="form-label">Category</label>
+    <select id="category_id" formControlName="category_id" class="form-control">
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{ category.name }}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update Product</button>
+</form>

@@ -1,0 +1,96 @@
+<div class="search-bar mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Nhập tên danh mục cần tìm..."
+    [(ngModel)]="searchKeyword"
+  />
+  <button class="btn btn-primary mt-2" (click)="searchCategories()">Tìm kiếm</button>
+</div>
+
+<div>
+  <!-- Nút mở modal thêm danh mục -->
+  <button class="btn btn-primary mb-3" (click)="openAddModal()">Thêm danh mục mới</button>
+
+  <!-- Modal thêm danh mục -->
+  <div
+    *ngIf="isAddModalOpen"
+    class="modal show d-block"
+    tabindex="-1"
+    style="background: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Thêm danh mục</h5>
+          <button type="button" class="btn-close" (click)="closeAddModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-category-admin (categoryAdded)="onCategoryAdded()"></app-add-category-admin>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal cập nhật danh mục -->
+  <div
+    *ngIf="isUpdateModalOpen"
+    class="modal show d-block"
+    tabindex="-1"
+    style="background: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Cập nhật danh mục</h5>
+          <button type="button" class="btn-close" (click)="closeUpdateModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-update-category-admin
+            [category]="selectedCategory"
+            (categoryUpdated)="onCategoryUpdated()"
+          ></app-update-category-admin>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hiển thị danh sách danh mục -->
+  <div *ngIf="!isLoading; else loadingTemplate">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tên danh mục</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.id }}</td>
+          <td>{{ category.name }}</td>
+          <td>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="deleteCategory(category.id)">
+              Xóa
+            </button>
+            <button
+              class="btn btn-warning btn-sm"
+              (click)="openUpdateModal(category)">
+              Cập nhật
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Hiển thị khi đang tải dữ liệu -->
+  <ng-template #loadingTemplate>
+    <div class="text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p>Đang tải danh mục...</p>
+    </div>
+  </ng-template>
+</div>
